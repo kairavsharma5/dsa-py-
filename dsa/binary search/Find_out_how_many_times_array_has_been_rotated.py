@@ -1,0 +1,19 @@
+arr=[3,4,5,1,2]
+n=len(arr)
+indent=-1
+mini=float("inf")
+low=0
+high=n-1
+while(low<=high):
+    mid=(low+high)//2
+    if (arr[mid]<=arr[high]):
+        if(arr[mid]<mini):
+            mini=arr[mid]
+            indent=mid
+        high=mid-1
+    else:
+        if(arr[low]<mini):
+            mini=arr[low]
+            indent=low
+        low=mid+1
+print(indent)
