@@ -23,3 +23,19 @@ class Solution(object):
             val+=1
         temp.next=temp.next.next
         return head
+
+
+
+#optimal
+class Solution(object):
+    def deleteMiddle(self, head):
+        if head is None or head.next is None:
+            return None
+
+        slow = head
+        fast = head.next.next          # start fast one step ahead
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        slow.next = slow.next.next     # slow is the node before the middle
+        return head
